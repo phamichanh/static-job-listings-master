@@ -1,7 +1,7 @@
 <template>
   <v-chip
     label
-    class="pr-0 py-0 mx-1 font-weight-bold"
+    class="pr-0 py-0 ma-2 font-weight-bold"
     color="secondary"
     text-color="primary"
   >
