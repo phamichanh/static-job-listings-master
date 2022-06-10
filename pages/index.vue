@@ -1,30 +1,32 @@
 <template>
   <v-row>
     <v-col>
-      <v-card v-if="filter.length > 0" class="px-8 py-3">
+      <v-card v-if="filter.length > 0" class="px-8 py-3 mb-10">
         <div class="d-flex justify-space-between align-center">
           <div>
-            <chip-btn
+            <keyword-selected-btn
               v-for="item in filter"
               :key="item"
               @delete="removeItemOfFilter(item)"
             >
               {{ item }}
-            </chip-btn>
+            </keyword-selected-btn>
           </div>
-          <a class="filter__btn-clear" @click="clearFilter()"> Clear </a>
+          <a class="filter__btn-clear mr-2" @click="clearFilter()"> Clear </a>
         </div>
       </v-card>
-      <v-card></v-card>
+      <job-card></job-card>
+      <job-card></job-card>
+      <job-card></job-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import ChipBtn from '../components/ChipBtn.vue'
+import KeywordSelectedBtn from '../components/KeywordSelectedBtn.vue'
 export default {
   name: 'IndexPage',
-  components: { ChipBtn },
+  components: { KeywordSelectedBtn },
   data() {
     return {
       filter: ['Frontend', 'CSS', 'Javascript'],
