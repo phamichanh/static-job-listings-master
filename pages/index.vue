@@ -1,11 +1,14 @@
 <template>
-  <v-row>
+  <v-row style="padding-bottom: 120px">
     <v-col>
       <v-card
         :class="`${filter.length > 0 ? '' : 'd-hidden'} px-8 py-3 mb-10`"
-        style="margin-top: -40px"
+        style="margin-top: -46px"
       >
-        <div class="d-flex justify-space-between align-center">
+        <div
+          class="d-flex justify-space-between align-center"
+          style="min-height: 48px"
+        >
           <div>
             <keyword-selected-btn
               v-for="item in filter"
@@ -19,7 +22,7 @@
         </div>
       </v-card>
       <job-card
-        v-for="job in jobs"
+        v-for="job in jobsComputed"
         :key="job.id"
         :job="job"
         @keyword-click="addItemToFilter"
@@ -31,6 +34,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import KeywordSelectedBtn from '../components/KeywordSelectedBtn.vue';
+import { JobDto } from '../types/job';
 
 @Component({
   components: {
@@ -210,6 +214,29 @@ export default class extends Vue {
 
   clearFilter() {
     this.filter = [];
+  }
+
+  get jobsComputed(): JobDto[] {
+    if (this.filter.length <= 0) {
+      return this.jobs;
+    }
+
+    let filterJobs: JobDto[] = [];
+    filterJobs = this.jobs.filter((job) => {
+      let keywords = [];
+      keywords.push(job.role);
+      keywords.push(job.level);
+      keywords = keywords.concat(job.tools, job.languages);
+
+      for (let i = 0; i < this.filter.length; i++) {
+        if (!keywords.includes(this.filter[i])) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+    return filterJobs;
   }
 }
 </script>
