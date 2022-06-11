@@ -5,7 +5,6 @@
       class="ml-2 font-weight-bold"
       :color="hover ? 'primary' : 'secondary'"
       :text-color="hover ? 'white' : 'primary'"
-      @click="$emit('keyword-click')"
     >
       <slot />
     </v-chip>
@@ -13,5 +12,5 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
