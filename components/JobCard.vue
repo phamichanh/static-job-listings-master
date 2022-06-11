@@ -1,5 +1,9 @@
 <template>
-  <v-card class="mt-6 px-10 py-8">
+  <v-card
+    :class="`${
+      job.featured ? 'featured-active' : ''
+    } featured-border mt-6 pl-9 pr-10 py-8 elevation-5`"
+  >
     <div class="d-flex justify-space-between">
       <div class="d-flex align-center">
         <v-avatar size="90" class="mr-5">
@@ -89,5 +93,14 @@ export default class extends Vue {
   background-color: #b7c4c4;
   border-radius: 50%;
   margin-bottom: 2px;
+}
+
+.featured-border {
+  border-left-style: solid;
+  border-left-width: 5px;
+}
+
+.featured-active {
+  border-left-color: #5fa4a4 !important;
 }
 </style>
