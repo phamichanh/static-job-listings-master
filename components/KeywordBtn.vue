@@ -5,6 +5,7 @@
       class="ml-2 font-weight-bold"
       :color="hover ? 'primary' : 'secondary'"
       :text-color="hover ? 'white' : 'primary'"
+      @click="$emit('click')"
     >
       <slot />
     </v-chip>

@@ -1,7 +1,10 @@
 <template>
   <v-row>
     <v-col>
-      <v-card v-if="filter.length > 0" class="px-8 py-3 mb-10">
+      <v-card
+        :class="`${filter.length > 0 ? '' : 'd-hidden'} px-8 py-3 mb-10`"
+        style="margin-top: -40px"
+      >
         <div class="d-flex justify-space-between align-center">
           <div>
             <keyword-selected-btn
@@ -15,7 +18,12 @@
           <a class="filter__btn-clear mr-2" @click="clearFilter()"> Clear </a>
         </div>
       </v-card>
-      <job-card v-for="job in jobs" :key="job.id" :job="job" />
+      <job-card
+        v-for="job in jobs"
+        :key="job.id"
+        :job="job"
+        @keyword-click="addItemToFilter"
+      />
     </v-col>
   </v-row>
 </template>
@@ -30,7 +38,7 @@ import KeywordSelectedBtn from '../components/KeywordSelectedBtn.vue';
   },
 })
 export default class extends Vue {
-  filter = ['Frontend', 'CSS', 'Javascript'];
+  filter: string[] = [];
 
   jobs = [
     {
@@ -185,6 +193,14 @@ export default class extends Vue {
     },
   ];
 
+  addItemToFilter(item: string) {
+    const idx = this.filter.indexOf(item);
+    if (idx >= 0) {
+      return;
+    }
+    this.filter.push(item);
+  }
+
   removeItemOfFilter(item: string) {
     const idx = this.filter.indexOf(item);
     if (idx >= 0) {
@@ -207,5 +223,9 @@ export default class extends Vue {
   color: #5fa4a4;
   font-weight: 600;
   text-decoration: underline;
+}
+
+.d-hidden {
+  visibility: hidden !important;
 }
 </style>
