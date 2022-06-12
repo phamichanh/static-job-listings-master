@@ -1,5 +1,5 @@
 <template>
-  <v-row style="padding-bottom: 120px">
+  <v-row style="padding-bottom: 60px">
     <v-col>
       <v-card
         :class="`${filter.length > 0 ? '' : 'd-hidden'} px-8 py-3 mb-10`"

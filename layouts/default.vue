@@ -4,13 +4,22 @@
     <v-container>
       <Nuxt />
     </v-container>
+    <footer>
+      <div class="attribution pb-8 text-center">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >.<br />
+        Coded by <a href="#">Pham Ich Anh</a>.
+      </div>
+    </footer>
   </v-app>
 </template>
 
 <script>
 export default {
   name: 'DefaultLayout',
-}
+};
 </script>
 <style lang="scss">
 header {
