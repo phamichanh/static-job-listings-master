@@ -223,7 +223,7 @@ export default class extends Vue {
 
     let filterJobs: JobDto[] = [];
     filterJobs = this.jobs.filter((job) => {
-      let keywords = [];
+      let keywords: string[] = [];
       keywords.push(job.role);
       keywords.push(job.level);
       keywords = keywords.concat(job.tools, job.languages);

@@ -8,6 +8,8 @@
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
     "noEmit": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
@@ -15,7 +17,13 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": ["@nuxt/types", "@nuxtjs/axios", "@types/node"],
+    "types": [
+      "@nuxt/types",
+      "@nuxtjs/axios",
+      "jest",
+      "@types/node",
+      "@nuxtjs/vuetify"
+    ],
     "jsx": "preserve"
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

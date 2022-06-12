@@ -2,13 +2,11 @@
   <v-card
     :class="`${
       job.featured ? 'featured-active' : ''
-    } featured-border mt-6 pl-9 pr-10 py-8 elevation-5`"
+    } featured-border mt-10 mt-md-6 pl-9 pr-10 py-md-8 pb-8 elevation-5`"
   >
-    <div class="d-flex justify-space-between">
-      <div class="d-flex align-center">
-        <v-avatar size="90" class="mr-5">
-          <v-img :src="`${job.logo}`" width="90" height="90" />
-        </v-avatar>
+    <div class="d-md-flex align-center justify-md-space-between">
+      <div class="d-md-flex">
+        <img :src="`${job.logo}`" class="company-avatar" />
         <v-list-item three-line class="pa-0">
           <v-list-item-content class="pa-0">
             <v-list-item-title
@@ -49,10 +47,12 @@
           </v-list-item-content>
         </v-list-item>
       </div>
-      <div class="d-flex justify-end align-center">
+      <v-divider class="d-block d-md-none my-4" />
+      <div class="d-md-flex justify-md-end">
         <keyword-btn
           v-for="word in keywords"
           :key="word"
+          class="my-1 mr-2 mr-md-0 ml-md-2"
           @click="$emit('keyword-click', word)"
         >
           {{ word }}
@@ -77,7 +77,7 @@ export default class extends Vue {
   job!: JobDto;
 
   get keywords(): string[] {
-    let keywords = [];
+    let keywords: string[] = [];
     keywords.push(this.job.role);
     keywords.push(this.job.level);
     keywords = keywords.concat(this.job.tools, this.job.languages);
@@ -102,5 +102,21 @@ export default class extends Vue {
 
 .featured-active {
   border-left-color: #5fa4a4 !important;
+}
+
+@media (min-width: 960px) {
+  .company-avatar {
+    height: 90px;
+    width: 90px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 959px) {
+  .company-avatar {
+    height: 50px;
+    width: 50px;
+    margin-top: -25px;
+  }
 }
 </style>

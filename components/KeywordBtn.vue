@@ -2,7 +2,7 @@
   <v-hover v-slot="{ hover }">
     <v-chip
       label
-      class="ml-2 font-weight-bold"
+      class="font-weight-bold"
       :color="hover ? 'primary' : 'secondary'"
       :text-color="hover ? 'white' : 'primary'"
       @click="$emit('click')"
