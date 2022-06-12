@@ -6,7 +6,11 @@
   >
     <div class="d-md-flex align-center justify-md-space-between">
       <div class="d-md-flex">
-        <img :src="`${job.logo}`" class="job__company-avatar" />
+        <img
+          :src="`${job.logo}`"
+          alt="job-company-logo"
+          class="job__company-avatar"
+        />
         <v-list-item three-line class="pa-0">
           <v-list-item-content class="pa-0">
             <v-list-item-subtitle class="font-weight-bold primary--text">
