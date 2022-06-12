@@ -17,13 +17,7 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": [
-      "@nuxt/types",
-      "@nuxtjs/axios",
-      "jest",
-      "@types/node",
-      "@nuxtjs/vuetify"
-    ],
+    "types": ["@nuxt/types", "@nuxtjs/axios", "@types/node", "@nuxtjs/vuetify"],
     "jsx": "preserve"
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

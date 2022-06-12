@@ -6,12 +6,10 @@
   >
     <div class="d-md-flex align-center justify-md-space-between">
       <div class="d-md-flex">
-        <img :src="`${job.logo}`" class="company-avatar" />
+        <img :src="`${job.logo}`" class="job__company-avatar" />
         <v-list-item three-line class="pa-0">
           <v-list-item-content class="pa-0">
-            <v-list-item-title
-              class="subtitle-1 font-weight-bold primary--text"
-            >
+            <v-list-item-subtitle class="font-weight-bold primary--text">
               <span class="mr-3">{{ job.company }}</span>
               <v-chip
                 v-if="job.new"
@@ -29,14 +27,12 @@
               >
                 Featured
               </v-chip>
+            </v-list-item-subtitle>
+            <v-list-item-title class="font-weight-bold">
+              <a class="job__position">
+                {{ job.position }}
+              </a>
             </v-list-item-title>
-            <v-hover v-slot="{ hover }">
-              <h3 class="font-weight-bold">
-                <a :class="`${hover ? 'primary--text' : 'accent--text'} h1`">
-                  {{ job.position }}
-                </a>
-              </h3>
-            </v-hover>
             <v-list-item-subtitle class="font-weight-medium tertiary--text">
               <span>{{ job.postedAt }}</span>
               <span class="dot-spacer mx-3"></span>
@@ -104,8 +100,16 @@ export default class extends Vue {
   border-left-color: #5fa4a4 !important;
 }
 
+.job__position {
+  color: #2c3a3a !important;
+}
+
+.job__position:hover {
+  color: #5fa4a4 !important;
+}
+
 @media (min-width: 960px) {
-  .company-avatar {
+  .job__company-avatar {
     height: 90px;
     width: 90px;
     margin-right: 20px;
@@ -113,7 +117,7 @@ export default class extends Vue {
 }
 
 @media (max-width: 959px) {
-  .company-avatar {
+  .job__company-avatar {
     height: 50px;
     width: 50px;
     margin-top: -25px;

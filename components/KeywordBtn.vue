@@ -1,17 +1,20 @@
 <template>
-  <v-hover v-slot="{ hover }">
-    <v-chip
-      label
-      class="font-weight-bold"
-      :color="hover ? 'primary' : 'secondary'"
-      :text-color="hover ? 'white' : 'primary'"
-      @click="$emit('click')"
-    >
-      <slot />
-    </v-chip>
-  </v-hover>
+  <v-chip label class="font-weight-bold keyword-btn" @click="$emit('click')">
+    <slot />
+  </v-chip>
 </template>
 
 <script>
 export default {};
 </script>
+<style lang="scss">
+.keyword-btn {
+  background-color: #eef6f6 !important;
+  color: #5fa4a4 !important;
+}
+
+.keyword-btn:hover {
+  background-color: #5fa4a4 !important;
+  color: white !important;
+}
+</style>
