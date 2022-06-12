@@ -16,19 +16,34 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  name: 'DefaultLayout',
-};
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+
+@Component
+export default class extends Vue {}
 </script>
 <style lang="scss">
 header {
-  height: 156px;
-  background-image: url('~/assets/images/bg-header-desktop.svg');
   background-color: rgb(95, 164, 164);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .v-application {
   background-color: hsl(180, 52%, 96%) !important;
+}
+
+@media (min-width: 960px) {
+  header {
+    height: 156px;
+    background-image: url('~/assets/images/bg-header-desktop.svg');
+  }
+}
+
+@media (max-width: 959px) {
+  header {
+    height: 156px;
+    background-image: url('~/assets/images/bg-header-mobile.svg');
+  }
 }
 </style>
