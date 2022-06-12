@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/es5/util/colors';
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -35,6 +35,22 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    [
+      '@nuxtjs/google-fonts',
+      {
+        families: {
+          'League+Spartan': {
+            wght: [300, 500, 700],
+          },
+        },
+        display: 'swap',
+        prefetch: false,
+        preconnect: false,
+        preload: false,
+        download: true,
+        base64: false,
+      },
+    ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -72,4 +88,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+};

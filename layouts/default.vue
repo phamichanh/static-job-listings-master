@@ -23,6 +23,10 @@ import { Component, Vue } from 'nuxt-property-decorator';
 export default class extends Vue {}
 </script>
 <style lang="scss">
+.v-application {
+  font-family: 'League Spartan', sans-serif;
+}
+
 header {
   background-color: rgb(95, 164, 164);
   background-repeat: no-repeat;

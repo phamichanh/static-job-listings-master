@@ -10,12 +10,12 @@
         <v-list-item three-line class="pa-0">
           <v-list-item-content class="pa-0">
             <v-list-item-subtitle class="font-weight-bold primary--text">
-              <span class="mr-3">{{ job.company }}</span>
+              <span class="mr-2 job__company">{{ job.company }}</span>
               <v-chip
                 v-if="job.new"
                 small
                 color="primary"
-                class="text-uppercase font-weight-bold mx-1"
+                class="text-uppercase font-weight-bold mr-1 px-2 job__tag"
               >
                 New!
               </v-chip>
@@ -23,7 +23,7 @@
                 v-if="job.featured"
                 small
                 color="accent"
-                class="text-uppercase font-weight-bold mx-1"
+                class="text-uppercase font-weight-bold mr-1 px-2 job__tag"
               >
                 Featured
               </v-chip>
@@ -100,8 +100,18 @@ export default class extends Vue {
   border-left-color: #5fa4a4 !important;
 }
 
+.job__company {
+  font-size: 18px;
+}
+
+.job__tag {
+  padding-top: 2px;
+  font-size: 13px !important;
+}
+
 .job__position {
   color: #2c3a3a !important;
+  font-size: 20px;
 }
 
 .job__position:hover {
