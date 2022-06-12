@@ -24,7 +24,7 @@ export default class extends Vue {}
 </script>
 <style lang="scss">
 .v-application {
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'League Spartan', sans-serif !important;
 }
 
 header {
